@@ -1,6 +1,6 @@
 name: "Marcus Carroll"
 navbar:
-  title: "MyBlog"
+  title: "Marcus Carroll"
   left:
     - text: "Home"
       href: index.html
