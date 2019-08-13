@@ -20,8 +20,7 @@ output: html_document
 # **Description**
 
 Every organization has hidden insights in the data they collect.
-My goal is to use my knowledge of statistics, data collection,data analytics and interpretation to help organizations use their data
-to make better decisions.
+My goal is to use my knowledge of statistics, data collection, data analytics and interpretation to help organizations glean insights form data to make better decisions.
 
 
 
