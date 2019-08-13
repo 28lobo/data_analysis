@@ -1,5 +1,5 @@
 ---
-title: "Journal"
+title: "Logistic Regression Modeling"
 output:
   html_document:
     toc: true
