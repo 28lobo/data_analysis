@@ -20,7 +20,7 @@ IMPORTANT: You can delete everything in here and start fresh. You might want to 
 This is an .Rmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a \# in front of your text, it will create a top level-header.
 
 # Introduction
-In the recent past, minorities in Seattle were denied access to home loans based on where they lived. This practice is known as redlining because property assessors would create maps with minority communities outlined in red. The red outline told bankers these minority communities were not fit for loans. The consequence of redlining was a significant disparity in mortgage loans and homeownership rates between whites and minority communities.
+In the recent past, minorities in Seattle were denied access to home loans based on where they lived. This practice is known as redlining because property assessors would create maps with minority communities outlined in red. The red outline told bankers those minority communities were not fit for loans. The consequence of redlining was a significant disparity in mortgage loans and homeownership rates between whites and minority communities.
 
 Today, banks don’t practice redlining, but disparities in mortgage loans and homeownership still exist at a significant rate. For example,
 
