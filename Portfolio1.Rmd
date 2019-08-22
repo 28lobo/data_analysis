@@ -25,13 +25,11 @@ Homeownership is an effective wealth generating tool. According to a study condu
 
 ## 1.1: Data
 
-You can add more headers by adding more hashtags. These won't be put into the table of contents
 
 ## 1.2: Methods
 
-Here's an even lower level header
 
-# My second post (note the order)
+# 2: Exploratory Analysis
 
 2018 | 7 | 23 Last compiled: `r Sys.Date()`
 
