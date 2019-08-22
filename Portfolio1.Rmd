@@ -6,7 +6,7 @@ output:
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 2
     #code_folding: hide
 ---
 
@@ -15,17 +15,19 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
 
-# Introduction
+# 1:Introduction
 In the recent past, minorities in Tacoma, Washington were denied access to home loans based on where they lived. This practice is known as redlining because property assessors would create maps with minority communities outlined in red. The red outline told bankers those minority communities were not fit for loans. The consequence of redlining was a significant disparity in mortgage loans and homeownership rates between white communities and minority communities.
 
 Today, banks don’t practice redlining, but disparities in mortgage loans and homeownership still exist at a significant rate. For example, the average homeownership rate in the West Census Region is 59.3 %; however, the average homeownership rate for minorities (47.9 %) is 11.4 points below the West Census Region's average, and 25.2 points below their white peers (73.1 %).
 
+Homeownership is an effective wealth generating tool. According to a study conducted by the Demos organization, if disparites in homeownership rates were closed; the wealth gap between white and black families decreased by 31 %. Because of these circumstances, an analysis of home mortgage data to discover patterns in loan approval / denial rates in the Tacoma-Lakewwood area is warranted.
 
-## Second level header
+
+## 1.1: Data
 
 You can add more headers by adding more hashtags. These won't be put into the table of contents
 
-### third level header
+## 1.2: Methods
 
 Here's an even lower level header
 

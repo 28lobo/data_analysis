@@ -369,16 +369,17 @@ div.tocify {
 
 
 <div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<h1>1:Introduction</h1>
 <p>In the recent past, minorities in Tacoma, Washington were denied access to home loans based on where they lived. This practice is known as redlining because property assessors would create maps with minority communities outlined in red. The red outline told bankers those minority communities were not fit for loans. The consequence of redlining was a significant disparity in mortgage loans and homeownership rates between white communities and minority communities.</p>
 <p>Today, banks don’t practice redlining, but disparities in mortgage loans and homeownership still exist at a significant rate. For example, the average homeownership rate in the West Census Region is 59.3 %; however, the average homeownership rate for minorities (47.9 %) is 11.4 points below the West Census Region’s average, and 25.2 points below their white peers (73.1 %).</p>
-<div id="second-level-header" class="section level2">
-<h2>Second level header</h2>
+<p>Homeownership is an effective wealth generating tool. According to a study conducted by the Demos organization, if disparites in homeownership rates were closed; the wealth gap between white and black families decreased by 31 %. Because of these circumstances, an analysis of home mortgage data to discover patterns in loan approval / denial rates in the Tacoma-Lakewwood area is warranted.</p>
+<div id="data" class="section level2">
+<h2>1.1: Data</h2>
 <p>You can add more headers by adding more hashtags. These won’t be put into the table of contents</p>
-<div id="third-level-header" class="section level3">
-<h3>third level header</h3>
-<p>Here’s an even lower level header</p>
 </div>
+<div id="methods" class="section level2">
+<h2>1.2: Methods</h2>
+<p>Here’s an even lower level header</p>
 </div>
 </div>
 <div id="my-second-post-note-the-order" class="section level1">
@@ -526,7 +527,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1",
+      selectors: "h1,h2",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
