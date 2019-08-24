@@ -46,6 +46,15 @@ tac<-read.csv("Tacoma.csv",header = T)
 str(tac)
 (tab1<-table(tac$applicant_race_name_1, tac$action_taken_name))
 table(tac$applicant_race_name_1,tac$action_taken_name)
+rowSums(tab1)
+colSums(tab1)
+prop.table(table(tac$applicant_race_name_1, tac$action_taken_name))*100
+prop.table(table(tac$applicant_race_name_1, tac$action_taken_name), margin = 2)*100
+(tab2<-prop.table(table(tac$applicant_race_name_1, tac$action_taken_name), margin=2)*100)
+colSums(tab2)
+chisq.test(tac$applicant_race_name_1, tac$action_taken_name)
+
+
 ```
 
 
