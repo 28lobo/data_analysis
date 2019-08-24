@@ -39,3 +39,4 @@ Variables such as applicant_sex, applicant_race were used to conduct a series of
 ### Figure 1
 ![](images/Rplot2.png)
 
+# Appendix
