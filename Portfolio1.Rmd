@@ -44,6 +44,8 @@ Variables such as applicant_sex, applicant_race were used to conduct a series of
 ```{r echo=FALSE}
 tac<-read.csv("Tacoma.csv",header = T)
 str(tac)
+(tab1<-table(tac$applicant_race_name_1, tac$action_taken_name))
+table(tac$applicant_race_name_1,tac$action_taken_name)
 ```
 
 
