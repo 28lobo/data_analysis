@@ -30,9 +30,9 @@ Analysis began by gathering data from the Consumer Financial Protection Bureau (
 To guide the modeling approach, the process began with the assumption that minorities were denied mortgage loans at a greater rate than non-minorites when controlling for loan amount,income and other factors. This hypothesis was based on trends in homeownership rates. Furthermore, logistic regression was used to generate the probability of the rejection of a mortgage loan based on race.
 
 # 2: Exploratory Analysis
-`
+Exploratory analysis was used to understand how categorical variables were related and the associations between continuous, independent variables.
 
-I'm writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom
+## 2:1 Exploratory Analysis of Categorical Variables
 
 # Adding R stuff
 
