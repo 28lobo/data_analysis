@@ -24,7 +24,7 @@ Homeownership is an effective wealth generating tool. According to a study condu
 
 
 ## 1.1: Data
-Analysis began by gathering data from the Consumer Financial Protection Bureau. 
+Analysis began by gathering data from the Consumer Financial Protection Bureau (CFPB). The CFPB provides access to loan-level data so that trends in mortgage applications can be monitored. Action taken on loan applications, HUD median income, loan amount, appliancts income, race and ethnicity, gender, loan type and purpose are some of the variables that are included in the dataset from the CFPB. For this analyses, the mortgage dataset included 35,000 observations for the Tacoma-Lakewood area, of which 85 % of the applicants were approved for mortgages. 
 
 ## 1.2: Methods
 
