@@ -34,3 +34,4 @@ Exploratory analysis was used to understand how categorical variables were relat
 
 ## 2:1 Exploratory Analysis of Categorical Variables
 
+Variables such as applicant_sex, applicant_race were used to conduct a series of t-test and chi-square test to determine the significance of differences in mortgage denial rates. The full table and the results of the significance test are included in the Appendix here. As an example, test were conducted a to determine whether the denial rates for minorities was significantly different from non-minoirties.
