@@ -40,3 +40,18 @@ Variables such as applicant_sex, applicant_race were used to conduct a series of
 ![](images/Rplot2.png)
 
 # Appendix
+### Chi-square test
+```{r echo=FALSE}
+tac<-read.csv("Tacoma.csv",header = T)
+str(tac)
+```
+
+
+
+
+
+
+
+
+
+
