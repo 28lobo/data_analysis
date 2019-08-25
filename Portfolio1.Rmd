@@ -43,7 +43,7 @@ Variables such as applicant_sex, applicant_race were used to conduct a series of
 
 
 ## 2:2 Exploratory Analysis by Race and Loan Status
-
+After obtaining the overall breakdown of loan approvals and denials, the analysis focused on the distribution of loan approvals and denials across race. The chi-square results indicated a significant relationship between between race and action taken by financial institution. The tables in the appendix show that minorites have an average approval probability of 79%, which is roughly 6 points lower than non-minorities. In terms of an odds ratio, non-minorities have a 5.91 to 1 chance of receiving approval; and minorities have 3.79 to 1 chance of receiving approval, which is 64 % less than non-minorities.
 
 ### Figure 2
 ![](images/Rplot4_race.png)
