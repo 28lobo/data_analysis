@@ -39,7 +39,17 @@ Variables such as applicant_sex, applicant_race were used to conduct a series of
 ### Figure 1
 ![](images/Rplot2.png)
 
-# Appendix
+
+
+
+## 2:2 Exploratory Analysis by Race and Loan Status
+
+
+### Figure 2
+![](images/Rplot4_race.png)
+
+
+## Appendix
 ### Chi-square test
 ```{r echo=FALSE}
 tac<-read.csv("Tacoma.csv",header = T)
