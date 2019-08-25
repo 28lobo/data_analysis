@@ -41,6 +41,24 @@ Variables such as applicant_sex, applicant_race were used to conduct a series of
 
 # Appendix
 ### Chi-square test
+```{r echo=FALSE}
+tac<-read.csv("Tacoma.csv",header = T)
+table(tac$action_taken_name,tac$applicant_race_name_1)
+(tab2<-table(tac$action_taken_name,tac$applicant_race_name_1))
+rowSums(tab2)
+colSums(tab2)
+prop.table(table(tac$action_taken_name,tac$applicant_race_name_1))*100
+prop.table(table(tac$action_taken_name,tac$applicant_race_name_1),margin = 2)*100
+(tab3<-prop.table(table(tac$action_taken_name,tac$applicant_race_name_1),margin = 2)*100)
+
+
+
+```
+The chi squared test was used to determine if their is a significant relationship between race and loan action taken by financial institutions.
+```{r echo=FALSE}
+chisq.test(tac$action_taken_name,tac$applicant_race_name_1)
+```
+
 
 
 

@@ -398,6 +398,126 @@ div.tocify {
 <h1>Appendix</h1>
 <div id="chi-square-test" class="section level3">
 <h3>Chi-square test</h3>
+<pre><code>##                                              
+##                                               American Indian or Alaska Native
+##   Application denied by financial institution                               97
+##   Loan originated                                                          384
+##                                              
+##                                               Asian
+##   Application denied by financial institution   470
+##   Loan originated                              1822
+##                                              
+##                                               Black or African American
+##   Application denied by financial institution                       468
+##   Loan originated                                                  1568
+##                                              
+##                                               Native Hawaiian or Other Pacific Islander
+##   Application denied by financial institution                                       103
+##   Loan originated                                                                   411
+##                                              
+##                                               White
+##   Application denied by financial institution  3634
+##   Loan originated                             21501</code></pre>
+<pre><code>##                                              
+##                                               American Indian or Alaska Native
+##   Application denied by financial institution                               97
+##   Loan originated                                                          384
+##                                              
+##                                               Asian
+##   Application denied by financial institution   470
+##   Loan originated                              1822
+##                                              
+##                                               Black or African American
+##   Application denied by financial institution                       468
+##   Loan originated                                                  1568
+##                                              
+##                                               Native Hawaiian or Other Pacific Islander
+##   Application denied by financial institution                                       103
+##   Loan originated                                                                   411
+##                                              
+##                                               White
+##   Application denied by financial institution  3634
+##   Loan originated                             21501</code></pre>
+<pre><code>## Application denied by financial institution 
+##                                        4772 
+##                             Loan originated 
+##                                       25686</code></pre>
+<pre><code>##          American Indian or Alaska Native 
+##                                       481 
+##                                     Asian 
+##                                      2292 
+##                 Black or African American 
+##                                      2036 
+## Native Hawaiian or Other Pacific Islander 
+##                                       514 
+##                                     White 
+##                                     25135</code></pre>
+<pre><code>##                                              
+##                                               American Indian or Alaska Native
+##   Application denied by financial institution                        0.3184713
+##   Loan originated                                                    1.2607525
+##                                              
+##                                                    Asian
+##   Application denied by financial institution  1.5431085
+##   Loan originated                              5.9820080
+##                                              
+##                                               Black or African American
+##   Application denied by financial institution                 1.5365421
+##   Loan originated                                             5.1480728
+##                                              
+##                                               Native Hawaiian or Other Pacific Islander
+##   Application denied by financial institution                                 0.3381706
+##   Loan originated                                                             1.3493992
+##                                              
+##                                                    White
+##   Application denied by financial institution 11.9311839
+##   Loan originated                             70.5922910</code></pre>
+<pre><code>##                                              
+##                                               American Indian or Alaska Native
+##   Application denied by financial institution                         20.16632
+##   Loan originated                                                     79.83368
+##                                              
+##                                                  Asian
+##   Application denied by financial institution 20.50611
+##   Loan originated                             79.49389
+##                                              
+##                                               Black or African American
+##   Application denied by financial institution                  22.98625
+##   Loan originated                                              77.01375
+##                                              
+##                                               Native Hawaiian or Other Pacific Islander
+##   Application denied by financial institution                                  20.03891
+##   Loan originated                                                              79.96109
+##                                              
+##                                                  White
+##   Application denied by financial institution 14.45793
+##   Loan originated                             85.54207</code></pre>
+<pre><code>##                                              
+##                                               American Indian or Alaska Native
+##   Application denied by financial institution                         20.16632
+##   Loan originated                                                     79.83368
+##                                              
+##                                                  Asian
+##   Application denied by financial institution 20.50611
+##   Loan originated                             79.49389
+##                                              
+##                                               Black or African American
+##   Application denied by financial institution                  22.98625
+##   Loan originated                                              77.01375
+##                                              
+##                                               Native Hawaiian or Other Pacific Islander
+##   Application denied by financial institution                                  20.03891
+##   Loan originated                                                              79.96109
+##                                              
+##                                                  White
+##   Application denied by financial institution 14.45793
+##   Loan originated                             85.54207</code></pre>
+<p>The chi squared test was used to determine if their is a significant relationship between race and loan action taken by financial institutions.</p>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  tac$action_taken_name and tac$applicant_race_name_1
+## X-squared = 165.79, df = 4, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 
