@@ -49,6 +49,13 @@ After obtaining the overall breakdown of loan approvals and denials, the analysi
 ![](images/Rplot4_race.png)
 
 
+
+
+
+
+# 3:Modeling
+
+
 ## Appendix
 ### Chi-square test
 ```{r echo=FALSE}
