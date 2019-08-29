@@ -62,7 +62,7 @@ Often, models are used to understand how an independent variable affects a depen
 ## 4:1 Results
 The logistic regression results revealed that minorites have a lower odds for approval than non-minorities when seeking a morthage loan. For example, when controlling for average income and average loan amount, a white person's odds for loan approval is 5.93 to 1; and a black person's odds are 3.75 to 1. These results are analogous to the results obtained from contingency table analysis mentioned in the exploratory analysis section.
 
-# Appendix
+# 5: Appendix
 ## Chi-square test
 ```{r echo=FALSE}
 tac<-read.csv("Tacoma.csv",header = T)
@@ -83,7 +83,7 @@ chisq.test(tac$action_taken_name,tac$applicant_race_name_1)
 ```
 
 
-## R Packages Used
+## 5:1 R Packages Used
 ```{r echo=TRUE}
 tac<-read.csv("Tacoma.csv",header = T)
 library(MASS)
@@ -96,10 +96,9 @@ library(psych)
 library(QuantPsyc)
 ```
 
-## Graphs
 
 
-### Imputation of Missing Values
+## 5:2 Imputation of Missing Values
 ```{r echo=TRUE}
 tac$missing_inc<-ifelse(is.na(tac$applicant_income_000s),
                       "Y","N")
@@ -121,7 +120,7 @@ summary(tac$applicant_income_000s)
 ```
 
 
-## Transformations
+## 5:3 Transformations
 ```{r echo= TRUE}
 tac<- mutate(tac, log_income = log(applicant_income_000s) )
 tac<- mutate(tac, log_LA = log(loan_amount_000s) )
@@ -134,7 +133,7 @@ hist(tac$log_LA)
 ```
 
 
-## Feature Engineering
+## 5:4 Feature Engineering
 
 ``` {r echo = TRUE}
 tac$BA[tac$applicant_race_name_1=="Black or African American"]="1"
@@ -163,7 +162,7 @@ tac<- tac[,c(1,2,3,9,10,11,12,13,14,15,16)]
 View(tac)
 ```
 
-## Data Partitioning
+## 5:5 Data Partitioning
 
 ```{r echo= TRUE}
 set.seed(327)
@@ -178,7 +177,7 @@ train_control<- trainControl(method = "repeatedcv",
 ```
 
 
-## Model Ouput
+## 5:6 Model Ouput
 ```{r echo = TRUE}
 model1<-glm(Loan_Status~ log_income+log_LA+BA+Female+AIAN+Asian,data = train,
             family ="binomial")

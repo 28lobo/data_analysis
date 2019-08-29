@@ -415,7 +415,7 @@ div.tocify {
 </div>
 </div>
 <div id="appendix" class="section level1">
-<h1>Appendix</h1>
+<h1>5: Appendix</h1>
 <div id="chi-square-test" class="section level2">
 <h2>Chi-square test</h2>
 <pre><code>##                                              
@@ -540,7 +540,7 @@ div.tocify {
 ## X-squared = 165.79, df = 4, p-value &lt; 2.2e-16</code></pre>
 </div>
 <div id="r-packages-used" class="section level2">
-<h2>R Packages Used</h2>
+<h2>5:1 R Packages Used</h2>
 <pre class="r"><code>tac&lt;-read.csv(&quot;Tacoma.csv&quot;,header = T)
 library(MASS)
 library(caret)
@@ -551,10 +551,8 @@ library(pastecs)
 library(psych)
 library(QuantPsyc)</code></pre>
 </div>
-<div id="graphs" class="section level2">
-<h2>Graphs</h2>
-<div id="imputation-of-missing-values" class="section level3">
-<h3>Imputation of Missing Values</h3>
+<div id="imputation-of-missing-values" class="section level2">
+<h2>5:2 Imputation of Missing Values</h2>
 <pre class="r"><code>tac$missing_inc&lt;-ifelse(is.na(tac$applicant_income_000s),
                       &quot;Y&quot;,&quot;N&quot;)
 names(tac)</code></pre>
@@ -600,9 +598,8 @@ summary(tac$applicant_income_000s)</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    1.00   60.00   82.00   98.53  113.00 3182.00</code></pre>
 </div>
-</div>
 <div id="transformations" class="section level2">
-<h2>Transformations</h2>
+<h2>5:3 Transformations</h2>
 <pre class="r"><code>tac&lt;- mutate(tac, log_income = log(applicant_income_000s) )
 tac&lt;- mutate(tac, log_LA = log(loan_amount_000s) )
 summary(tac$log_LA)</code></pre>
@@ -627,7 +624,7 @@ summary(tac$log_LA)</code></pre>
 <p><img src="Portfolio1_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
 <div id="feature-engineering" class="section level2">
-<h2>Feature Engineering</h2>
+<h2>5:4 Feature Engineering</h2>
 <pre class="r"><code>tac$BA[tac$applicant_race_name_1==&quot;Black or African American&quot;]=&quot;1&quot;
 tac$BA[tac$applicant_race_name_1==&quot;American Indian or Alaska Native&quot;]=&quot;0&quot;
 tac$BA[tac$applicant_race_name_1==&quot;White&quot;]=&quot;0&quot;
@@ -702,7 +699,7 @@ str(tac)</code></pre>
 View(tac)</code></pre>
 </div>
 <div id="data-partitioning" class="section level2">
-<h2>Data Partitioning</h2>
+<h2>5:5 Data Partitioning</h2>
 <pre class="r"><code>set.seed(327)
 index &lt;- createDataPartition(tac$Loan_Status, p = 0.7, list = FALSE)
 train&lt;-tac[index,]
@@ -714,7 +711,7 @@ train_control&lt;- trainControl(method = &quot;repeatedcv&quot;,
                              sampling = &quot;smote&quot;)</code></pre>
 </div>
 <div id="model-ouput" class="section level2">
-<h2>Model Ouput</h2>
+<h2>5:6 Model Ouput</h2>
 <pre class="r"><code>model1&lt;-glm(Loan_Status~ log_income+log_LA+BA+Female+AIAN+Asian,data = train,
             family =&quot;binomial&quot;)
 summary(model1)</code></pre>
