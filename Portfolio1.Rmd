@@ -134,21 +134,57 @@ hist(tac$log_LA)
 ```
 
 
+### Feature Engineering
+
+``` {r echo = TRUE}
+tac$BA[tac$applicant_race_name_1=="Black or African American"]="1"
+tac$BA[tac$applicant_race_name_1=="American Indian or Alaska Native"]="0"
+tac$BA[tac$applicant_race_name_1=="White"]="0"
+tac$BA[tac$applicant_race_name_1=="Asian"]= "0"
+tac$BA[tac$applicant_race_name_1 == "Native Hawaiian or Other Pacific Islander"]= "0"
+tac$Loan_Status[tac$action_taken_name=="Application denied by financial institution"]="0"
+tac$Loan_Status[tac$action_taken_name=="Loan originated"]="1"
+View(tac)
+tac<-mutate(tac, Female = ifelse(applicant_sex_name =="Female",1,0))
+tac<-mutate(tac, AIAN = ifelse(applicant_race_name_1=="American Indian or Alaska Native",1,0))
+tac<-mutate(tac, Asian = ifelse(applicant_race_name_1=="Asian",1,0))
+tac<-mutate(tac, NHPI = ifelse(applicant_race_name_1=="Native Hawaiian or Other Pacific Islander",1,0))
+tac$Loan_Status<- as.factor(tac$Loan_Status)
+tac$BA<-as.factor(tac$BA)
+tac$Female<-as.factor(tac$Female)
+tac$AIAN<-as.factor(tac$AIAN)
+tac$Asian<-as.factor(tac$Asian)
+tac$NHPI<-as.factor(tac$NHPI)
+str(tac)
+tac[tac$Loan_Status== 0, "Loan_Status"]
+table(tac$action_taken_name,tac$applicant_race_name_1)
+table(tac$Female)
+names(tac)
+tac<- tac[,c(1,2,3,9,10,11,12,13,14,15,16)]
+View(tac)
+```
+
+### Data Partitioning
+
+```{r echo= TRUE}
+set.seed(327)
+index <- createDataPartition(tac$Loan_Status, p = 0.7, list = FALSE)
+train<-tac[index,]
+test<-tac[-index,]
+train_control<- trainControl(method = "repeatedcv", 
+                             number = 10, 
+                             repeats = 10, 
+                             verboseIter = FALSE,                             
+                             sampling = "smote")
+```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Model Ouput
+```{r echo = TRUE}
+model1<-glm(Loan_Status~ log_income+log_LA+BA+Female+AIAN+Asian,data = train,
+            family ="binomial")
+summary(model1)
+```
 
 
 
