@@ -53,8 +53,8 @@ After obtaining the overall breakdown of loan approvals and denials, the analysi
 
 
 
-# 3:Modeling
-
+# 3: Data Wrangling
+The data wrangling process began by checking for errors, missing data, outliers, and testing assumptions. The table function in R was used to examine categorical variables for miscoded data and mislabeled categories. Fortunately, there were no issues with categorical variables. Next, the summary function identified which continuous variables had missing values.
 
 ## Appendix
 ### Chi-square test
