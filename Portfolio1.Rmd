@@ -62,8 +62,8 @@ Often, models are used to understand how an independent variable affects a depen
 ## 4:1
 
 
-## Appendix
-### Chi-square test
+# Appendix
+## Chi-square test
 ```{r echo=FALSE}
 tac<-read.csv("Tacoma.csv",header = T)
 table(tac$action_taken_name,tac$applicant_race_name_1)
@@ -83,7 +83,7 @@ chisq.test(tac$action_taken_name,tac$applicant_race_name_1)
 ```
 
 
-### R Packages Used
+## R Packages Used
 ```{r echo=TRUE}
 tac<-read.csv("Tacoma.csv",header = T)
 library(MASS)
@@ -96,7 +96,7 @@ library(psych)
 library(QuantPsyc)
 ```
 
-### Graphs
+## Graphs
 
 
 ### Imputation of Missing Values
@@ -121,7 +121,7 @@ summary(tac$applicant_income_000s)
 ```
 
 
-### Transformations
+## Transformations
 ```{r echo= TRUE}
 tac<- mutate(tac, log_income = log(applicant_income_000s) )
 tac<- mutate(tac, log_LA = log(loan_amount_000s) )
@@ -134,7 +134,7 @@ hist(tac$log_LA)
 ```
 
 
-### Feature Engineering
+## Feature Engineering
 
 ``` {r echo = TRUE}
 tac$BA[tac$applicant_race_name_1=="Black or African American"]="1"
@@ -163,7 +163,7 @@ tac<- tac[,c(1,2,3,9,10,11,12,13,14,15,16)]
 View(tac)
 ```
 
-### Data Partitioning
+## Data Partitioning
 
 ```{r echo= TRUE}
 set.seed(327)
@@ -178,7 +178,7 @@ train_control<- trainControl(method = "repeatedcv",
 ```
 
 
-### Model Ouput
+## Model Ouput
 ```{r echo = TRUE}
 model1<-glm(Loan_Status~ log_income+log_LA+BA+Female+AIAN+Asian,data = train,
             family ="binomial")
