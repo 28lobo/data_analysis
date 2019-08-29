@@ -405,6 +405,10 @@ div.tocify {
 <div id="data-screening-and-processing" class="section level1">
 <h1>3: Data Screening and Processing</h1>
 <p>The data wrangling process began by checking for errors, missing data, outliers, and testing assumptions. The table function in R was used to examine categorical variables for miscoded data and mislabeled categories. Fortunately, there were no issues with categorical variables. Next, the summary function identified which continuous variables had missing values. The variable applicant_income_000s had 1306 missing values. To solve this problem, an imputation function imputed values to the missing data. Once that problem was solved, graphical analysis and test of normality indicated that the variables applicant_income_000s and loan_amount_000s had to be transformed to reduce skewness. The log transformation succesfully completed this task. And lastly, categorical variables were converted to binary variables.</p>
+</div>
+<div id="modeling" class="section level1">
+<h1>4: Modeling</h1>
+<p>Often, models are used to understand how an independent variable affects a dependent variable. In this situation, logistic regression was used to determine if the probability for loan approval was different for non-minorities and minorities when income and loan amount is eqaul.</p>
 <div id="appendix" class="section level2">
 <h2>Appendix</h2>
 <div id="chi-square-test" class="section level3">
