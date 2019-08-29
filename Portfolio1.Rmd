@@ -156,7 +156,6 @@ tac$AIAN<-as.factor(tac$AIAN)
 tac$Asian<-as.factor(tac$Asian)
 tac$NHPI<-as.factor(tac$NHPI)
 str(tac)
-tac[tac$Loan_Status== 0, "Loan_Status"]
 table(tac$action_taken_name,tac$applicant_race_name_1)
 table(tac$Female)
 names(tac)
