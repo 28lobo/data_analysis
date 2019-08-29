@@ -12,7 +12,7 @@
 
 
 
-<title>Logistic Regression Modeling</title>
+<title>Fairness in Lending ?</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -363,7 +363,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Logistic Regression Modeling</h1>
+<h1 class="title toc-ignore">Fairness in Lending ?</h1>
 
 </div>
 
@@ -404,7 +404,7 @@ div.tocify {
 </div>
 <div id="data-screening-and-processing" class="section level1">
 <h1>3: Data Screening and Processing</h1>
-<p>The data wrangling process began by checking for errors, missing data, outliers, and testing assumptions. The table function in R was used to examine categorical variables for miscoded data and mislabeled categories. Fortunately, there were no issues with categorical variables. Next, the summary function identified which continuous variables had missing values. The variable applicant_income_000s had 1306 missing values. To solve this problem, an imputation function imputed values to the missing data. Once that problem was solved, graphical analysis and test of normality indicated that the variables applicant_income_000s and loan_amount_000s had to be transformed to reduce skewness. And lastly, categorical variables were converted to binary variables.</p>
+<p>The data wrangling process began by checking for errors, missing data, outliers, and testing assumptions. The table function in R was used to examine categorical variables for miscoded data and mislabeled categories. Fortunately, there were no issues with categorical variables. Next, the summary function identified which continuous variables had missing values. The variable applicant_income_000s had 1306 missing values. To solve this problem, an imputation function imputed values to the missing data. Once that problem was solved, graphical analysis and test of normality indicated that the variables applicant_income_000s and loan_amount_000s had to be transformed to reduce skewness. The log transformation succesfully completed this task. And lastly, categorical variables were converted to binary variables.</p>
 <div id="appendix" class="section level2">
 <h2>Appendix</h2>
 <div id="chi-square-test" class="section level3">

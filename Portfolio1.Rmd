@@ -1,5 +1,5 @@
 ---
-title: "Logistic Regression Modeling"
+title: "Fairness in Lending ?"
 output:
   html_document:
     toc: true
@@ -54,7 +54,7 @@ After obtaining the overall breakdown of loan approvals and denials, the analysi
 
 
 # 3: Data Screening and Processing
-The data wrangling process began by checking for errors, missing data, outliers, and testing assumptions. The table function in R was used to examine categorical variables for miscoded data and mislabeled categories. Fortunately, there were no issues with categorical variables. Next, the summary function identified which continuous variables had missing values. The variable applicant_income_000s had 1306 missing values. To solve this problem, an imputation function imputed values to the missing data. Once that problem was solved, graphical analysis and test of normality indicated that the variables applicant_income_000s and loan_amount_000s had to be transformed to reduce skewness. And lastly, categorical variables were converted to binary variables.
+The data wrangling process began by checking for errors, missing data, outliers, and testing assumptions. The table function in R was used to examine categorical variables for miscoded data and mislabeled categories. Fortunately, there were no issues with categorical variables. Next, the summary function identified which continuous variables had missing values. The variable applicant_income_000s had 1306 missing values. To solve this problem, an imputation function imputed values to the missing data. Once that problem was solved, graphical analysis and test of normality indicated that the variables applicant_income_000s and loan_amount_000s had to be transformed to reduce skewness. The log transformation succesfully completed this task. And lastly, categorical variables were converted to binary variables.
 
 ## Appendix
 ### Chi-square test
