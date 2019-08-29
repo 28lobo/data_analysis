@@ -59,7 +59,7 @@ The data wrangling process began by checking for errors, missing data, outliers,
 # 4: Modeling
 Often, models are used to understand how an independent variable affects a dependent variable. In this situation, logistic regression was used to determine if the odds for loan approval was different for non-minorities and minorities when income and loan amount are equal. 
 
-## 4: 1
+## 4:1
 
 
 ## Appendix
@@ -81,6 +81,88 @@ The chi squared test was used to determine if their is a significant relationshi
 ```{r echo=FALSE}
 chisq.test(tac$action_taken_name,tac$applicant_race_name_1)
 ```
+
+
+### R Packages Used
+```{r echo=TRUE}
+tac<-read.csv("Tacoma.csv",header = T)
+library(MASS)
+library(caret)
+library(car)
+library(ggplot2)
+library(dplyr)
+library(pastecs)
+library(psych)
+library(QuantPsyc)
+```
+
+### Graphs
+
+
+### Imputation of Missing Values
+```{r echo=TRUE}
+tac$missing_inc<-ifelse(is.na(tac$applicant_income_000s),
+                      "Y","N")
+names(tac)
+features_1<- c("tract_to_msamd_income","population","minority_population",
+               "loan_amount_000s","applicant_income_000s","applicant_race_name_1",
+               "applicant_sex_name", "action_taken_name")
+tac<-tac[,features_1]
+dummy_vars<- dummyVars(~., data = tac[,-8])
+tac_dummy<- predict(dummy_vars,tac[,-8])
+View(tac_dummy)
+names(tac_dummy)
+pre_process<- preProcess(tac_dummy, method = "medianImpute")
+imputed_data<-predict(pre_process,tac_dummy)
+View(imputed_data)
+
+tac$applicant_income_000s<- imputed_data[,5]
+summary(tac$applicant_income_000s)
+```
+
+
+### Transformations
+```{r echo= TRUE}
+tac<- mutate(tac, log_income = log(applicant_income_000s) )
+tac<- mutate(tac, log_LA = log(loan_amount_000s) )
+summary(tac$log_LA)
+summary(tac$log_income)
+describe(tac$log_income)
+hist(tac$log_income)
+describe(tac$log_LA)
+hist(tac$log_LA)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

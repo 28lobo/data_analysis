@@ -408,7 +408,10 @@ div.tocify {
 </div>
 <div id="modeling" class="section level1">
 <h1>4: Modeling</h1>
-<p>Often, models are used to understand how an independent variable affects a dependent variable. In this situation, logistic regression was used to determine if the probability for loan approval was different for non-minorities and minorities when income and loan amount is eqaul.</p>
+<p>Often, models are used to understand how an independent variable affects a dependent variable. In this situation, logistic regression was used to determine if the odds for loan approval was different for non-minorities and minorities when income and loan amount are equal.</p>
+<div id="section" class="section level2">
+<h2>4:1</h2>
+</div>
 <div id="appendix" class="section level2">
 <h2>Appendix</h2>
 <div id="chi-square-test" class="section level3">
@@ -533,6 +536,93 @@ div.tocify {
 ## 
 ## data:  tac$action_taken_name and tac$applicant_race_name_1
 ## X-squared = 165.79, df = 4, p-value &lt; 2.2e-16</code></pre>
+</div>
+<div id="r-packages-used" class="section level3">
+<h3>R Packages Used</h3>
+<pre class="r"><code>tac&lt;-read.csv(&quot;Tacoma.csv&quot;,header = T)
+library(MASS)
+library(caret)
+library(car)
+library(ggplot2)
+library(dplyr)
+library(pastecs)
+library(psych)
+library(QuantPsyc)</code></pre>
+</div>
+<div id="graphs" class="section level3">
+<h3>Graphs</h3>
+</div>
+<div id="imputation-of-missing-values" class="section level3">
+<h3>Imputation of Missing Values</h3>
+<pre class="r"><code>tac$missing_inc&lt;-ifelse(is.na(tac$applicant_income_000s),
+                      &quot;Y&quot;,&quot;N&quot;)
+names(tac)</code></pre>
+<pre><code>##  [1] &quot;tract_to_msamd_income&quot;          &quot;rate_spread&quot;                   
+##  [3] &quot;population&quot;                     &quot;minority_population&quot;           
+##  [5] &quot;number_of_owner_occupied_units&quot; &quot;number_of_1_to_4_family_units&quot; 
+##  [7] &quot;loan_amount_000s&quot;               &quot;hud_median_family_income&quot;      
+##  [9] &quot;applicant_income_000s&quot;          &quot;state_name&quot;                    
+## [11] &quot;state_abbr&quot;                     &quot;sequence_number&quot;               
+## [13] &quot;respondent_id&quot;                  &quot;purchaser_type_name&quot;           
+## [15] &quot;property_type_name&quot;             &quot;preapproval_name&quot;              
+## [17] &quot;owner_occupancy_name&quot;           &quot;msamd_name&quot;                    
+## [19] &quot;loan_type_name&quot;                 &quot;loan_purpose_name&quot;             
+## [21] &quot;lien_status_name&quot;               &quot;hoepa_status_name&quot;             
+## [23] &quot;edit_status_name&quot;               &quot;denial_reason_name_3&quot;          
+## [25] &quot;denial_reason_name_2&quot;           &quot;denial_reason_name_1&quot;          
+## [27] &quot;county_name&quot;                    &quot;co_applicant_sex_name&quot;         
+## [29] &quot;co_applicant_race_name_5&quot;       &quot;co_applicant_race_name_4&quot;      
+## [31] &quot;co_applicant_race_name_3&quot;       &quot;co_applicant_race_name_2&quot;      
+## [33] &quot;co_applicant_race_name_1&quot;       &quot;co_applicant_ethnicity_name&quot;   
+## [35] &quot;census_tract_number&quot;            &quot;as_of_year&quot;                    
+## [37] &quot;application_date_indicator&quot;     &quot;applicant_sex_name&quot;            
+## [39] &quot;applicant_race_name_5&quot;          &quot;applicant_race_name_4&quot;         
+## [41] &quot;applicant_race_name_3&quot;          &quot;applicant_race_name_2&quot;         
+## [43] &quot;applicant_race_name_1&quot;          &quot;applicant_ethnicity_name&quot;      
+## [45] &quot;agency_name&quot;                    &quot;agency_abbr&quot;                   
+## [47] &quot;action_taken_name&quot;              &quot;missing_inc&quot;</code></pre>
+<pre class="r"><code>features_1&lt;- c(&quot;tract_to_msamd_income&quot;,&quot;population&quot;,&quot;minority_population&quot;,
+               &quot;loan_amount_000s&quot;,&quot;applicant_income_000s&quot;,&quot;applicant_race_name_1&quot;,
+               &quot;applicant_sex_name&quot;, &quot;action_taken_name&quot;)
+tac&lt;-tac[,features_1]
+dummy_vars&lt;- dummyVars(~., data = tac[,-8])
+tac_dummy&lt;- predict(dummy_vars,tac[,-8])
+View(tac_dummy)
+names(tac_dummy)</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>pre_process&lt;- preProcess(tac_dummy, method = &quot;medianImpute&quot;)
+imputed_data&lt;-predict(pre_process,tac_dummy)
+View(imputed_data)
+
+tac$applicant_income_000s&lt;- imputed_data[,5]
+summary(tac$applicant_income_000s)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00   60.00   82.00   98.53  113.00 3182.00</code></pre>
+</div>
+<div id="transformations" class="section level3">
+<h3>Transformations</h3>
+<pre class="r"><code>tac&lt;- mutate(tac, log_income = log(applicant_income_000s) )
+tac&lt;- mutate(tac, log_LA = log(loan_amount_000s) )
+summary(tac$log_LA)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   5.273   5.525   5.504   5.771   7.908</code></pre>
+<pre class="r"><code>summary(tac$log_income)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   4.094   4.407   4.429   4.727   8.065</code></pre>
+<pre class="r"><code>describe(tac$log_income)</code></pre>
+<pre><code>##    vars     n mean   sd median trimmed  mad min  max range skew kurtosis
+## X1    1 30458 4.43 0.54   4.41    4.42 0.46   0 8.07  8.07 0.15     3.23
+##    se
+## X1  0</code></pre>
+<pre class="r"><code>hist(tac$log_income)</code></pre>
+<p><img src="Portfolio1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>describe(tac$log_LA)</code></pre>
+<pre><code>##    vars     n mean   sd median trimmed  mad min  max range  skew kurtosis
+## X1    1 30458  5.5 0.46   5.53    5.52 0.37   0 7.91  7.91 -0.92     5.76
+##    se
+## X1  0</code></pre>
+<pre class="r"><code>hist(tac$log_LA)</code></pre>
+<p><img src="Portfolio1_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
 </div>
 </div>
