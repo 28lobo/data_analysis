@@ -370,24 +370,24 @@ div.tocify {
 
 <div id="introduction" class="section level1">
 <h1>1:Introduction</h1>
-<p>In the recent past, minorities in Tacoma, Washington were denied access to home loans based on where they lived. This practice is known as redlining because property assessors would create maps with minority communities outlined in red. The red outline told bankers those minority communities were not fit for loans. The consequence of redlining was a significant disparity in mortgage loans and homeownership rates between white communities and minority communities.</p>
-<p>Today, banks don’t practice redlining, but disparities in mortgage loans and homeownership still exist at a significant rate. For example, the average homeownership rate in the West Census Region is 59.3 %; however, the average homeownership rate for minorities (47.9 %) is 11.4 points below the West Census Region’s average, and 25.2 points below their white peers (73.1 %).</p>
+<p>In the recent past, minorities in Tacoma, Washington were denied access to home loans based on where they lived. This practice is known as redlining because property assessors would create maps with minority communities outlined in red. The red outline told bankers minority communities were not fit for loans. The consequence of redlining was a significant disparity in mortgage loans and homeownership rates between white communities and minority communities.</p>
+<p>Today, banks don’t practice redlining, but disparities in mortgage loans and homeownership still exist at a significant rate. For example, the average homeownership rate in the West Census Region is 59.3 %. However, the average homeownership rate for minorities (47.9 %) is 11.4 points below the West Census Region’s average and 25.2 points below their white peers (73.1 %).</p>
 <p>Homeownership is an effective wealth generating tool. According to a study conducted by the Demos organization, if disparites in homeownership rates were closed; the wealth gap between white and black families decreased by 31 %. Because of these circumstances, an analysis of home mortgage data to discover patterns in loan approval / denial rates in the Tacoma-Lakewwood area is warranted.</p>
 <div id="data" class="section level2">
 <h2>1.1: Data</h2>
-<p>Analysis began by gathering data from the Consumer Financial Protection Bureau (CFPB). The CFPB provides access to loan-level data so that trends in mortgage applications can be monitored. Action taken on loan applications, HUD median income, loan amount, appliancts income, race and ethnicity, gender, loan type and purpose are some of the variables that are included in the dataset from the CFPB. For this analyses, the mortgage dataset included 35,000 observations for the Tacoma-Lakewood area, of which 85 % of the applicants were approved for mortgages.</p>
+<p>Analysis began by gathering data from the Consumer Financial Protection Bureau (CFPB). The CFPB provides access to loan-level data so that trends in mortgage applications can be monitored. Action taken on loan applications, HUD median income, loan amount, appliancts income, race and ethnicity, gender, loan type and purpose are some of the variables that are included in the dataset from the CFPB. For this analyses, the mortgage dataset included 30,451 observations for the Tacoma-Lakewood area, of which 85 % of the applicants were approved for mortgages.</p>
 </div>
 <div id="methods" class="section level2">
 <h2>1.2: Methods</h2>
-<p>To guide the modeling approach, the process began with the assumption that minorities were denied mortgage loans at a greater rate than non-minorites when controlling for loan amount,income and other factors. This hypothesis was based on trends in homeownership rates. Furthermore, logistic regression was used to generate the probability of the rejection of a mortgage loan based on race.</p>
+<p>To guide the modeling approach, the process began with the assumption that minority approval rates are lower than non-minorites when controlling for loan amount,income and other factors. This hypothesis was based on trends in homeownership rates. Furthermore, logistic regression was used to generate the odds of approval for a mortgage loan based on race.</p>
 </div>
 </div>
 <div id="exploratory-analysis" class="section level1">
 <h1>2: Exploratory Analysis</h1>
-<p>Exploratory analysis was used to understand how categorical variables were related and the associations between continuous, independent variables.</p>
+<p>Exploratory analysis was used to understand what factors are related to different statuses on action taken by the financial institution (loan originated or loan denied).</p>
 <div id="exploratory-analysis-of-categorical-variables" class="section level2">
 <h2>2:1 Exploratory Analysis of Categorical Variables</h2>
-<p>Variables such as applicant_sex, applicant_race were used to conduct a series of t-test and chi-square test to determine the significance of differences in mortgage denial rates. The full table and the results of the significance test are included in the Appendix here. As an example, test were conducted a to determine whether the denial rates for minorities was significantly different from non-minoirties. Figure 1 shows the overall approval and denial rates for mortgage loans, of which roughly 85 % were approved and 15 % denied.</p>
+<p>Applicant_sex,applicant_race, and action_taken were used to conduct a series chi-square test to determine if any significant differences in loan status existed. The full <a href="#tables">tables</a> and the results of the significance test are included in the Appendix here. As an example, test were conducted a to determine whether the loan approvals and denials for minorities were significantly different from non-minoirties. Figure 1 shows the overall approval and denial rates for mortgage loans, of which roughly 85 % were approved and 15 % denied.</p>
 <div id="figure-1" class="section level3">
 <h3>Figure 1</h3>
 <p><img src="images/Rplot2.png" /></p>
@@ -395,7 +395,7 @@ div.tocify {
 </div>
 <div id="exploratory-analysis-by-race-and-loan-status" class="section level2">
 <h2>2:2 Exploratory Analysis by Race and Loan Status</h2>
-<p>After obtaining the overall breakdown of loan approvals and denials, the analysis focused on the distribution of loan approvals and denials across race. The chi-square results indicated a significant relationship between between race and action taken by financial institution. The tables in the appendix show that minorites have an average approval probability of 79%, which is roughly 6 points lower than non-minorities. In terms of an odds ratio, non-minorities have a 5.91 to 1 chance of receiving approval; and minorities have 3.79 to 1 chance of receiving approval, which is 64 % less than non-minorities.</p>
+<p>After observing the overall breakdown of loan approvals and denials, the analysis focused on the distribution of loan approvals and denials across race. The chi-square results indicated a significant relationship between between race and action taken by financial institution. The <a href="#tables">tables</a> in the appendix show that minorites have an average approval probability for loan approval of 79%, which is roughly 6 points lower than non-minorities. In terms of an odds ratio, non-minorities have a 5.91 to 1 chance of receiving approval; and minorities have 3.79 to 1 chance of receiving approval, which is 64 % less than non-minorities.</p>
 <div id="figure-2" class="section level3">
 <h3>Figure 2</h3>
 <p><img src="images/Rplot4_race.png" /></p>
@@ -411,13 +411,13 @@ div.tocify {
 <p>Often, models are used to understand how an independent variable affects a dependent variable. In this situation, logistic regression was used to determine if the odds for loan approval was different for non-minorities and minorities when income and loan amount are equal.</p>
 <div id="results" class="section level2">
 <h2>4:1 Results</h2>
-<p>The logistic regression results revealed that minorites have a lower odds for approval than non-minorities when seeking a morthage loan. For example, when controlling for average income and average loan amount, a white person’s odds for loan approval is 5.93 to 1; and a black person’s odds are 3.75 to 1. These results are analogous to the results obtained from contingency table analysis mentioned in the exploratory analysis section.</p>
+<p>The <a href="#logistic-regression">logistic regression</a> revealed that minorites have a lower odds for approval than non-minorities when seeking a morthage loan. For example, when controlling for average income and average loan amount, a white person’s odds for loan approval is 5.93 to 1; and a black person’s odds are 3.75 to 1. These results are analogous to the results obtained from contingency table analysis mentioned in the exploratory analysis section.</p>
 </div>
 </div>
 <div id="appendix" class="section level1">
 <h1>5: Appendix</h1>
-<div id="chi-square-test" class="section level2">
-<h2>Chi-square test</h2>
+<div id="tables" class="section level2">
+<h2>tables</h2>
 <pre><code>##                                              
 ##                                               American Indian or Alaska Native
 ##   Application denied by financial institution                               97
@@ -710,8 +710,10 @@ train_control&lt;- trainControl(method = &quot;repeatedcv&quot;,
                              verboseIter = FALSE,                             
                              sampling = &quot;smote&quot;)</code></pre>
 </div>
-<div id="model-ouput" class="section level2">
-<h2>5:6 Model Ouput</h2>
+<div id="model-output" class="section level2">
+<h2>5:6 Model Output</h2>
+<div id="logistic-regression" class="section level3">
+<h3>logistic regression</h3>
 <pre class="r"><code>model1&lt;-glm(Loan_Status~ log_income+log_LA+BA+Female+AIAN+Asian,data = train,
             family =&quot;binomial&quot;)
 summary(model1)</code></pre>
@@ -743,6 +745,7 @@ summary(model1)</code></pre>
 ## AIC: 18055
 ## 
 ## Number of Fisher Scoring iterations: 4</code></pre>
+</div>
 </div>
 </div>
 

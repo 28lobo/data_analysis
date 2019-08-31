@@ -24,17 +24,17 @@ Homeownership is an effective wealth generating tool. According to a study condu
 
 
 ## 1.1: Data
-Analysis began by gathering data from the Consumer Financial Protection Bureau (CFPB). The CFPB provides access to loan-level data so that trends in mortgage applications can be monitored. Action taken on loan applications, HUD median income, loan amount, appliancts income, race and ethnicity, gender, loan type and purpose are some of the variables that are included in the dataset from the CFPB. For this analyses, the mortgage dataset included 35,000 observations for the Tacoma-Lakewood area, of which 85 % of the applicants were approved for mortgages. 
+Analysis began by gathering data from the Consumer Financial Protection Bureau (CFPB). The CFPB provides access to loan-level data so that trends in mortgage applications can be monitored. Action taken on loan applications, HUD median income, loan amount, appliancts income, race and ethnicity, gender, loan type and purpose are some of the variables that are included in the dataset from the CFPB. For this analyses, the mortgage dataset included 30,451 observations for the Tacoma-Lakewood area, of which 85 % of the applicants were approved for mortgages. 
 
 ## 1.2: Methods
-To guide the modeling approach, the process began with the assumption that minorities were denied mortgage loans at a greater rate than non-minorites when controlling for loan amount,income and other factors. This hypothesis was based on trends in homeownership rates. Furthermore, logistic regression was used to generate the probability of the rejection of a mortgage loan based on race.
+To guide the modeling approach, the process began with the assumption that minority approval rates are lower than non-minorites when controlling for loan amount,income and other factors. This hypothesis was based on trends in homeownership rates. Furthermore, logistic regression was used to generate the odds of approval for a mortgage loan based on race.
 
 # 2: Exploratory Analysis
-Exploratory analysis was used to understand how categorical variables were related and the associations between continuous, independent variables.
+Exploratory analysis was used to understand what factors are related to different statuses on action taken by the financial institution (loan originated or loan denied).
 
 ## 2:1 Exploratory Analysis of Categorical Variables
 
-Variables such as applicant_sex, applicant_race were used to conduct a series of t-test and chi-square test to determine the significance of differences in mortgage denial rates. The full table and the results of the significance test are included in the Appendix here. As an example, test were conducted a to determine whether the denial rates for minorities was significantly different from non-minoirties. Figure 1 shows the overall approval and denial rates for mortgage loans, of which roughly 85 % were approved and 15 % denied.
+Applicant_sex,applicant_race, and action_taken were used to conduct a series chi-square test to determine if any significant differences in loan status existed. The full [tables] and the results of the significance test are included in the Appendix here. As an example, test were conducted a to determine whether the loan approvals and denials for minorities were significantly different from non-minoirties. Figure 1 shows the overall approval and denial rates for mortgage loans, of which roughly 85 % were approved and 15 % denied.
 
 ### Figure 1
 ![](images/Rplot2.png)
@@ -43,7 +43,7 @@ Variables such as applicant_sex, applicant_race were used to conduct a series of
 
 
 ## 2:2 Exploratory Analysis by Race and Loan Status
-After obtaining the overall breakdown of loan approvals and denials, the analysis focused on the distribution of loan approvals and denials across race. The chi-square results indicated a significant relationship between between race and action taken by financial institution. The tables in the appendix show that minorites have an average approval probability of 79%, which is roughly 6 points lower than non-minorities. In terms of an odds ratio, non-minorities have a 5.91 to 1 chance of receiving approval; and minorities have 3.79 to 1 chance of receiving approval, which is 64 % less than non-minorities.
+After observing the overall breakdown of loan approvals and denials, the analysis focused on the distribution of loan approvals and denials across race. The chi-square results indicated a significant relationship between between race and action taken by financial institution. The [tables] in the appendix show that minorites have an average approval probability for loan approval of 79%, which is roughly 6 points lower than non-minorities. In terms of an odds ratio, non-minorities have a 5.91 to 1 chance of receiving approval; and minorities have 3.79 to 1 chance of receiving approval, which is 64 % less than non-minorities.
 
 ### Figure 2
 ![](images/Rplot4_race.png)
@@ -60,10 +60,10 @@ The data wrangling process began by checking for errors, missing data, outliers,
 Often, models are used to understand how an independent variable affects a dependent variable. In this situation, logistic regression was used to determine if the odds for loan approval was different for non-minorities and minorities when income and loan amount are equal. 
 
 ## 4:1 Results
-The logistic regression results revealed that minorites have a lower odds for approval than non-minorities when seeking a morthage loan. For example, when controlling for average income and average loan amount, a white person's odds for loan approval is 5.93 to 1; and a black person's odds are 3.75 to 1. These results are analogous to the results obtained from contingency table analysis mentioned in the exploratory analysis section.
+The [logistic regression] revealed that minorites have a lower odds for approval than non-minorities when seeking a morthage loan. For example, when controlling for average income and average loan amount, a white person's odds for loan approval is 5.93 to 1; and a black person's odds are 3.75 to 1. These results are analogous to the results obtained from contingency table analysis mentioned in the exploratory analysis section.
 
 # 5: Appendix
-## Chi-square test
+## tables
 ```{r echo=FALSE}
 tac<-read.csv("Tacoma.csv",header = T)
 table(tac$action_taken_name,tac$applicant_race_name_1)
@@ -177,7 +177,8 @@ train_control<- trainControl(method = "repeatedcv",
 ```
 
 
-## 5:6 Model Ouput
+## 5:6 Model Output
+### logistic regression
 ```{r echo = TRUE}
 model1<-glm(Loan_Status~ log_income+log_LA+BA+Female+AIAN+Asian,data = train,
             family ="binomial")
