@@ -6,6 +6,4 @@ navbar:
       href: index.html
     - text: "Portfolio1"
       href: Portfolio1.html
-    - text: "Links"
-      href: Links.html
 output_dir: "docs"
