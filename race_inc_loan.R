@@ -96,8 +96,8 @@ inc+
   cleanup
 # 3 way table
 
-mytable<- prop.table(t$action_taken_name,t$applicant_race_name_1,t$inc.cat)
-prop.table(ftable(mytable))
+mytable<- table(t$action_taken_name,t$applicant_race_name_1,t$inc.cat)
+ftable(mytable)
 chisq.test(mytable)
 mantelhaen.test(mytable,t$inc.cat)
 ?mantelhaen.test
