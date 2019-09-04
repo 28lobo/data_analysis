@@ -49,8 +49,9 @@ After observing the overall breakdown of loan approvals and denials, the analysi
 ![](images/Rplot4_race.png)
 
 
-## 2:3
-To drill down into the data further, applicant's income was placed into low, medium, and high categories. Less than $ 60,000 was considered low, income between 60,000 and 113,000 dollars was labeled medium, and greater than 113,000 dollars was considered high.Figure 3 shows loan approval for minorities with low, medium, and high incomes visibly different than non-minorities. For example, the three way cross table indicated that minorites with low income have an average probability of 70.5 % to receive a loan approval, while non-minorities a 78.7 % chance to get a loan. Further more, when controlling for high income, minorities have an 82.7 % chance to obtain a loan, and non-minorities an 88.6 % probability of receiving a loan.
+## 2:3 Exploratory Analysis by Race, Income, and Loan Status
+
+To drill down into the data further, applicant's income was placed into low, medium, and high categories. Less than $ 60,000 was considered low, income between 60,000 and 113,000 dollars was labeled medium, and greater than 113,000 dollars was considered high.Figure 3 shows loan approval for minorities with low, medium, and high incomes visibly different than non-minorities. For example, the three way cross table analysis indicated that minorites with low incomes have an average probability of 70.5 % to receive a loan approval, while non-minorities a 78.7 % chance to get a loan. Further more, when controlling for high income, minorities have an 82.7 % chance to obtain a loan, and non-minorities have an 88.6 % probability of receiving a loan. Finally, the Mantel-Haenszel test found that the relationship between race, income, and loan approvals were significant.
 
 ![](images/race_inc_2.2.png)
 
