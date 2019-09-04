@@ -60,7 +60,7 @@ The data wrangling process began by checking for errors, missing data, outliers,
 Often, models are used to understand how an independent variable affects a dependent variable. In this situation, logistic regression was used to determine if the odds for loan approval was different for non-minorities and minorities when income and loan amount are equal. 
 
 ## 4:1 Results
-The [logistic regression] revealed that minorites have a lower odds for approval than non-minorities when seeking a morthage loan. For example, when controlling for average income and average loan amount, a white person's odds for loan approval is 5.93 to 1; and a black person's odds are 3.75 to 1. These results are analogous to the results obtained from contingency table analysis mentioned in the exploratory analysis section.
+The [logistic regression] revealed that minorites have a lower odds for approval than non-minorities when seeking a morthage loan. For example, when controlling for average income and average loan amount, a white person's odds for loan approval is 5.93 to 1; and a black person's odds are 3.75 to 1. These results are analogous to the results obtained from the contingency tables mentioned in the exploratory analysis section. The formula used to derive the odds ratios from the logistic regression is provide in the appendix
 
 # 5: Appendix
 ## tables
@@ -186,6 +186,8 @@ summary(model1)
 ```
 
 
+## 5:7
+### formula
 
 
 
