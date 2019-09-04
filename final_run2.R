@@ -106,3 +106,14 @@ summary(model1)
 PredTrain1<- predict(model, newdata=train)
 confusionMatrix(predict(model,test),test$Loan_Status)
 View(train)
+
+
+
+
+
+
+
+
+
+
+

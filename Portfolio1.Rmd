@@ -82,6 +82,14 @@ The chi squared test was used to determine if their is a significant relationshi
 chisq.test(tac$action_taken_name,tac$applicant_race_name_1)
 ```
 
+### table and Mantel-Haenszel test
+```{r echo = FALSE}
+mytable<- table(t$action_taken_name,t$applicant_race_name_1,t$inc.cat)
+ftable(mytable)
+mantelhaen.test(mytable,t$inc.cat)
+```
+
+
 
 ## 5:1 R Packages Used
 ```{r echo=TRUE}
